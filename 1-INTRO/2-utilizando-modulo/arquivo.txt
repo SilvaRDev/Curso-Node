@@ -1,0 +1,2 @@
+Olá, mundo!
+Estou testando módulo de leitura de arquivos do node.
