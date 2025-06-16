@@ -4,7 +4,8 @@ const port = 3000
 
 const server = http.createServer((req, res) => {
 
-  res.write("Olá, mundo")
+  res.write("<meta charset='utf-8'>")
+  res.write("<h1>Olá, mundo</h1>")
   res.end()
 
 }) 
@@ -12,3 +13,4 @@ const server = http.createServer((req, res) => {
 server.listen(port, () => {
   console.log(`Servidor rodando na porta: ${port}!`)
 })
+
