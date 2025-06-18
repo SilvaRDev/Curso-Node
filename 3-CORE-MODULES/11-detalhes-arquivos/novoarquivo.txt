@@ -1,0 +1,1 @@
+testando o método stat, presente no módulo fs - Core Module do node js.
