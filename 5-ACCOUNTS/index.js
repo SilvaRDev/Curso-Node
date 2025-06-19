@@ -39,6 +39,28 @@ function operation() {
 function createAccount() {
   console.log(chalk.bgGreen.hex('#000').bold('Agradecemos por escolher o nosso banco!'))
   console.log(chalk.bgGreen.hex('#000').bold('Defina as opções da sua conta a seguir:'))
+
+  buildAccount()
 }
 
+function buildAccount() {
 
+  inquirer 
+  .prompt([
+    {
+      name: 'accountName',
+      message: 'Digite um nome para a sua conta:'
+    },
+  ])
+  .then((answer) => {
+    const accountName = answer['accountName']
+
+    console.info(accountName)
+
+    if(!fs.existsSync('accounts')) {
+      fs.mkdirSync('accounts') // Cria um diretório com o nome Accounts.
+    }
+  })
+  .catch((err => console.log(err)))
+
+}
