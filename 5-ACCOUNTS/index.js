@@ -17,7 +17,7 @@ function operation() {
     {
       type: 'list',
       name: 'action',
-      message: 'O que vocÊ deseja fazer?',
+      message: 'O que você deseja fazer?',
       choices: ['Criar conta', 'Consultar saldo', 'Depositar', 'Sacar', 'Sair']
     },
   ])
@@ -55,11 +55,34 @@ function buildAccount() {
   .then((answer) => {
     const accountName = answer['accountName']
 
-    console.info(accountName)
+    if(accountName === '') {
+      console.log(chalk.bgRed.black('Insira um nome a sua conta!'))
+      buildAccount()
+      return
+    }
 
-    if(!fs.existsSync('accounts')) {
+    if(!fs.existsSync('accounts') || !accountName === '') {
       fs.mkdirSync('accounts') // Cria um diretório com o nome Accounts.
     }
+
+    if(fs.existsSync(`accounts/${accountName}.json`)) { // Caso exista uma conta com o nome digitado pelo user
+      console.log(chalk.bgRed.black('Essa conta já existe. Escolha outro nome!'))
+
+      buildAccount()
+      return
+    }
+
+    fs.writeFileSync(
+      `accounts/${accountName}.json`,
+      '{"balance": 0}', 
+      function(err) {
+        console.log(err)
+      },
+    )
+
+    console.log(chalk.green('Parabéns, a sua conta foi criada e já pode ser movimentada!'))
+
+    operation()
   })
   .catch((err => console.log(err)))
 
