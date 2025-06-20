@@ -32,7 +32,7 @@ function operation() {
     } else if(action === 'Depositar') {
       deposit()
     } else if(action === 'Sacar') {
-
+      withDraw()
     } else if(action === 'Sair') {
       console.log(chalk.bgBlue.hex('#000')('Obrigado por usar o accounts!'))
       process.exit()
@@ -161,13 +161,56 @@ function getAccountBalance() {
 
     console.log(
         chalk.bgBlue.hex('#000')(
-        `Olá, ${accountName}! Seu saldo é de R$${accountData.balance}.`
+        `${accountName}, seu saldo é de R$${accountData.balance}.`
       ),
     )
     operation()
 
   })
   .catch((err => console.log(err)))
+}
+
+// withdraw an amount from user account
+function withDraw() {
+
+  inquirer 
+  .prompt([
+    {
+      name: 'accountName',
+      message: 'Digite o nome presente em sua conta:',
+    }
+  ])
+  .then((answer) => {
+
+    const accountName = answer['accountName']
+
+    if(!checkAccount(accountName)) {
+      return withDraw()
+    }
+
+    inquirer 
+    .prompt([
+      {
+        name: 'amount',
+        message: 'Qual o valor que você deseja sacar de sua conta?'
+      }
+    ])
+    .then((answer) => {
+
+      const amount = answer['amount']
+
+      console.log(amount)
+
+    })
+    .catch((err => console.log(err)))
+
+    const accountData = getAccount(accountName)
+
+    
+
+  })
+  .catch((err => console.log(err)))
+
 }
 
 // External functions
