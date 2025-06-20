@@ -161,7 +161,7 @@ function getAccountBalance() {
 
     console.log(
         chalk.bgBlue.hex('#000')(
-        `${accountName}, seu saldo é de R$${accountData.balance}.`
+        `${accountName}, seu saldo é de R$${accountData.balance.toFixed(2)}.`
       ),
     )
     operation()
@@ -199,14 +199,9 @@ function withDraw() {
 
       const amount = answer['amount']
 
-      console.log(amount)
-
+      removeAmount(accountName, amount)
     })
     .catch((err => console.log(err)))
-
-    const accountData = getAccount(accountName)
-
-    
 
   })
   .catch((err => console.log(err)))
@@ -255,5 +250,40 @@ function getAccount(accountName) {
   })
 
   return JSON.parse(accountJSON)
+
+}
+
+function removeAmount(accountName, amount) {
+
+  const accountData = getAccount(accountName)
+
+  if(!amount) {
+    console.log(
+      chalk.bgRed.hex('#000')('Ocorreu um erro, tente novamente mais tarde.')
+    )
+    return withDraw()
+  }
+
+  if(accountData.balance < amount) {
+    console.log(
+      chalk.bgRed.hex('#000')('Seu saldo não é suficiente para completar essa operação.')
+    )
+    return withDraw()
+  }
+
+  accountData.balance = parseFloat(accountData.balance) - parseFloat(amount)
+
+  fs.writeFileSync(
+    `accounts/${accountName}.json`,
+    JSON.stringify(accountData),
+    function(err) {
+      console.log(err)
+    },
+  )
+
+  console.log(
+    chalk.green(`Saque no valor de R$${amount} foi realizado na sua conta!`)
+  )
+  operation()
 
 }
