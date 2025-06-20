@@ -28,7 +28,7 @@ function operation() {
     if(action === 'Criar conta') {
       createAccount()
     } else if(action === 'Consultar saldo') {
-
+      getAccountBalance()
     } else if(action === 'Depositar') {
       deposit()
     } else if(action === 'Sacar') {
@@ -132,11 +132,42 @@ function deposit() {
       operation()
 
     })
-    .catch((err) => console.log(err))
+    .catch((err => console.log(err)))
 
   })
   .catch((err => console.log(err)))
 
+}
+
+// show account balance
+function getAccountBalance() {
+  inquirer
+  .prompt([
+    {
+      name: 'accountName',
+      message: 'Digite o nome presente em sua conta:'
+    },
+  ])
+  .then((answer) => {
+
+    const accountName = answer['accountName']
+
+    // Verify if account exists
+    if(!checkAccount(accountName)) {
+      return getAccountBalance()
+    }
+
+    const accountData = getAccount(accountName)
+
+    console.log(
+        chalk.bgBlue.hex('#000')(
+        `Olá, ${accountName}! Seu saldo é de R$${accountData.balance}.`
+      ),
+    )
+    operation()
+
+  })
+  .catch((err => console.log(err)))
 }
 
 // External functions
