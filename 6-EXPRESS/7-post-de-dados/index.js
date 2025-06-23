@@ -6,7 +6,7 @@ const path = require('path')
 
 // Ler o body
 app.use( // Converte os dados do form em um objeto. Sendo possível acessá-lo pelo req.body
-  express.urlencoded({
+  express.urlencoded({  
     extended: true,
   }),
 )
