@@ -5,7 +5,7 @@ const port = 3000
 const path = require('path')
 
 // Ler o body
-app.use(
+app.use( // Converte os dados do form em um objeto. Sendo possível acessá-lo pelo req.body
   express.urlencoded({
     extended: true,
   }),
@@ -19,7 +19,7 @@ app.get('/users/add', (req, res) => {
   res.sendFile(`${basePath}/userform.html`)
 })
 
-app.post('/users/save', (req, res) => {
+app.post('/users/save', (req, res) => { // É ativado por meio da action, presente no formulário do arquivo userform.html.
   console.log(req.body)
 
   const name = req.body.name
