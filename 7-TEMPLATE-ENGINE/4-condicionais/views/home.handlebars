@@ -1,0 +1,13 @@
+<h1>Olá, mundo</h1>
+<p>
+  Olá, <strong>{{user.name}} {{user.surname}}</strong>!
+</p>
+<p>
+  Você tem <strong>{{user.age}} anos!</strong>
+</p>
+
+{{#if auth}}
+  <p>
+    Você está autenticado. <a href="/dashboard">Clique aqui</a> para acessar a área de membros!
+  </p>
+{{/if}}
