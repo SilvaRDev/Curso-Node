@@ -1,0 +1,83 @@
+* {
+  font-family: arial;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  width: 450px;
+  margin: 0 auto;
+}
+
+.form,
+.books-container {
+  width: 450px;
+  margin: 0 auto;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: .5em;
+}
+
+.form-control label {
+  font-weight: bold;
+  margin-bottom: .3em;
+}
+
+.form-control input {
+  padding: 5px;
+}
+
+.form-btn {
+  width: 100%;
+  height: 40px;
+  background-color: crimson;
+  color: white;
+  border: none;
+  font-weight: bold;
+  font-size: 1.1em;
+  border-radius: 20px;
+  transition: .5s;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.form-btn:hover {
+  cursor: pointer;
+  background-color: rgba(220, 20, 60, 0.897);
+  transition: .5s;
+}
+
+.form-seccond-btn {
+  width: 100%;
+  background-color: white;
+  color: crimson;
+  border: solid 2px crimson;
+  text-decoration: none;
+  transition: .5s;
+}
+
+.form-seccond-btn:hover {
+  color: white;
+  transition: .5s;
+}
+
+/* BOOKS */
+.books-container div {
+  border-bottom: solid 1px #ccc;
+  margin: 5px;
+  padding: 5px;
+}
+
+.c-bold {
+  color: crimson;
+  font-weight: bold;
+}
+
+.bold {
+  font-weight: bold;
+}
