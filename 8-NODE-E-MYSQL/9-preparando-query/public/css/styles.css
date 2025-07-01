@@ -1,0 +1,209 @@
+* {
+  font-family: arial;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* GENERAL */
+body {
+  width: 100vw;
+  background-color: #fcfcfc;
+}
+
+
+h1 {
+  text-align: center;
+}
+
+h1, 
+p {
+  margin: 10px 0;
+}
+
+p {
+  margin-left: 10px;
+}
+
+.container {
+  width: 450px;
+  margin: 0 auto;
+}
+
+.form {
+  width: 450px;
+}
+
+.books-container {
+  width: 600px;
+}
+
+.form,
+.books-container {
+  margin: 0 auto;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: .5em;
+}
+
+.form-control label {
+  font-weight: bold;
+  margin-bottom: .3em;
+}
+
+.form-control input {
+  padding: 5px;
+}
+
+.form-btn {
+  width: 100%;
+  height: 40px;
+  background-color: crimson;
+  color: white;
+  border: none;
+  font-weight: bold;
+  font-size: 1.1em;
+  border-radius: 20px;
+  transition: .5s;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.form-btn:hover {
+  cursor: pointer;
+  background-color: rgba(220, 20, 60, 0.897);
+  transition: .5s;
+}
+
+.form-seccond-btn {
+  width: 100%;
+  background-color: white;
+  color: crimson;
+  border: solid 2px crimson;
+  text-decoration: none;
+  transition: .5s;
+}
+
+.form-seccond-btn:hover {
+  color: white;
+  transition: .5s;
+}
+
+/* NAVBAR */
+.navbar {
+  background-color: crimson;
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+#navbar-logo a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.3em;
+}
+
+#navbar-items ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+#navbar-items ul li {
+  margin: 8px;
+  list-style: none;
+}
+
+#navbar-items ul li:nth-child(1) {
+  margin-left: 0;
+}
+
+#navbar-items ul li:last-child {
+  margin-right: none;
+}
+
+#navbar-items ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: .5s;
+}
+
+#navbar-items ul li a:hover {
+  color: rgba(255, 255, 255, 0.753);
+  transition: .5s;
+}
+
+/* BOOKS */
+.books-container div {
+  border-bottom: solid 1px #ccc;
+  margin: 5px;
+  padding: 5px;
+}
+
+.c-bold {
+  color: crimson;
+  font-weight: bold;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.bold > a {
+  color: black;
+  text-decoration: none;
+}
+ 
+/* BOOK PAGE */
+#book-page {
+  width: 450px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#back-link {
+  color: crimson;
+  margin-top: 15px;
+  text-decoration: none;
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: .5s;
+}
+
+#back-link:hover {
+  color: rgba(220, 20, 60, 0.671);
+  transition: .5s;
+}
+
+/* 404 PAGE */
+#container-error {
+  width: 100%;
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#error-title {
+  color: crimson;
+  font-size: 4em;
+}
+
+#error-description {
+  font-size: 1.3em;
+}
+
+#back-err-btn {
+  width: 450px;
+}
