@@ -52,9 +52,10 @@ app.post('/books/insertbook', (req, res) => {
     return
   }
 
-  const sql = `INSERT INTO books (title, pageqty) VALUES ('${title}', '${pagesqty}')`
+  const sql = `INSERT INTO books (??, ??) VALUES (?, ?)`
+  const data = ['title', 'pageqty', title, pagesqty]
 
-  pool.query(sql, (err) => {
+  pool.query(sql, data, (err) => {
 
     if(err) {
       console.log(err)
@@ -69,9 +70,10 @@ app.get('/book/:id', (req, res) => {
 
   const id = req.params.id
 
-  const sql = `SELECT * FROM books WHERE id = ${id}`
+  const sql = `SELECT * FROM books WHERE ?? = ?`
+  const data = ['id', id]
 
-  pool.query(sql, (err, data) => {
+  pool.query(sql, data, (err, data) => {
 
     if(err) {
       console.log(err)
@@ -95,9 +97,10 @@ app.get('/books/edit/:id', (req, res) => {
 
   const id = req.params.id 
 
-  const sql = `SELECT * FROM books WHERE id = ${id}`
+  const sql = `SELECT * FROM books WHERE ?? = ?`
+  const data = ['id', id]
 
-  pool.query(sql, (err, data) => {
+  pool.query(sql, data, (err, data) => {
 
     if(err) {
       console.log(err)
@@ -118,9 +121,10 @@ app.post('/books/updatebook', (req, res) => {
   const title = req.body.title
   const pageqty = req.body.pagesqty
 
-  const sql = `UPDATE books SET title = '${title}', pageqty = ${pageqty} WHERE id = ${id}`
+  const sql = `UPDATE books SET ?? = ?, ?? = ? WHERE ?? = ?`
+  const data = ['title', title, 'pageqty', pageqty, 'id', id]
 
-  pool.query(sql, (err) => {
+  pool.query(sql, data, (err) => {
 
     if(err) {
       console.log(err)
@@ -137,9 +141,10 @@ app.post('/books/remove/:id', (req, res) => {
 
   const id = req.params.id
 
-  const sql = `DELETE FROM books WHERE id = ${id}`
+  const sql = `DELETE FROM books WHERE ?? = ?`
+  const data = ['id', id]
 
-  pool.query(sql, (err) => {
+  pool.query(sql, data, (err) => {
     
     if(err) {
       console.log(err)
