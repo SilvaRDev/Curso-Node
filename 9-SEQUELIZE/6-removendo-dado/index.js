@@ -50,7 +50,7 @@ app.post('/users/create', async (req, res) => {
     newsletter = false
   }
 
-  await User.create({name, occupation, newsletter}) // Cria o usuário, passando os argumentos vindos do post do form.
+  await User.create({name, occupation, newsletter}) // Cria o usuário, passando os argumentos vindos do post do form (comando INSERT).
 
   res.redirect('/')
 
@@ -60,10 +60,10 @@ app.get('/users/:id', async (req, res) => {
 
   const id = req.params.id
 
-  const user = await User.findOne({ raw: true, where: { id: id } })
+  const user = await User.findOne({ raw: true, where: { id: id } }) // Procura ítens do db (comando SELECT)
 
   if(!user) {
-    res.status(404).render('404')
+    res.status(404).render('404') 
     return
   }
 
@@ -79,7 +79,7 @@ app.post('/users/delete/:id', async (req, res) => {
 
   const id = req.params.id 
 
-  await User.destroy({where: {id: id}})
+  await User.destroy({where: {id: id}}) // Remove itens do db (comando DELETE)
 
   res.redirect('/')
 
