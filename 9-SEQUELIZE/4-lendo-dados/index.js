@@ -23,6 +23,7 @@ app.set('view engine', 'handlebars')
 /* CSS SETTINGS */
 app.use(express.static('public'))
 
+
 app.get('/', async (req, res) => {
 
   const users = await User.findAll({ raw: true })
