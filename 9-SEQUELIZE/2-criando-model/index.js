@@ -31,7 +31,7 @@ app.use((req, res) => {
   res.status(404).render('404')
 })
 
-conn.sync().then(() => {
+conn.sync().then(() => { //sincroniza as tabelas do banco
   app.listen(port, (err) => {
     if(err) {
       console.log(err)
