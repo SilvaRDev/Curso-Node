@@ -124,12 +124,15 @@ app.use((req, res) => {
   res.status(404).render('404')
 })
 
-conn.sync().then(() => { //sincroniza as tabelas do banco
-  app.listen(port, (err) => {
-    if(err) {
-      console.log(err)
-    }
+conn
+  .sync()
+  // .sync({ force: true }) - Força uma 'formatação' da tabela, recriando-a e removendo os dados. (APENAS UTILIZAR PARA O DESENVOLVIMENTO DA APLICAÇÃO.)
+  .then(() => {
+    app.listen(port, (err) => {
+      if(err) {
+        console.log(err)
+      }
 
-    console.log(`Servidor iniciado na porta ${port}!`)
-  })
-}).catch((err) => console.log(err))
+      console.log(`Servidor iniciado na porta ${port}!`)
+    })
+  }).catch((err) => console.log(err))
