@@ -4,7 +4,6 @@ const session = require('express-session')
 const FileStore = require('session-file-store')(session)
 const flash = require('express-flash') 
 
-
 const app = express()
 
 const conn = require('./db/conn')
@@ -12,6 +11,10 @@ const conn = require('./db/conn')
 // Models 
 const Tought = require('./models/Tought')
 const User = require('./models/User')
+
+// Import Routes
+const toughtsRoutes = require('./routes/toughtsRoutes')
+const ToughtController = require('./controllers/ToughtController')
 
 // Port
 const port = 3000
@@ -50,19 +53,24 @@ app.use(
 )
 
 // Flash messages 
-app.use(flash)
+app.use(flash())
 
 // public path
 app.use(express.static('public'))
 
 // setar sessão em res
 app.use((req, res, next) => {
-  if(res.session.userid) {
+  if(req.session.userid) {
     res.locals.session = req.session // Garante que o ID do usuário seja fornecido em TODAS as res.
   }
 
   next()
 })
+
+// Routes 
+app.use('/toughts', toughtsRoutes)
+
+app.get('/', ToughtController.showToughts)
 
 conn 
 //.sync({ force: true })
