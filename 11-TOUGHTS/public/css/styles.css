@@ -3,6 +3,9 @@
 :root {
   --bg-color: #222;
   --orange-base-color: #F6982D;
+  --f-m-bg-color: #CCE5FF;
+  --f-m-color: #004085;
+  --f-m-border-color: #B8DAFF;
 }
 
 /* GENERAL SETTINGS */
@@ -53,6 +56,18 @@
 .container {
   min-height: 60vh;
   padding: 2em;
+}
+
+/* FLASH MESSAGES */
+.message {
+  padding: 1em;
+  color: var(--f-m-color);
+  background-color: var(--f-m-bg-color);
+  border: 1px solid var(--f-m-border-color);
+  border-radius: 5px;
+  text-align: center;
+  margin: 0 auto 2em;
+  max-width: 60%;
 }
 
 /* LOGIN AND REGISTER */
