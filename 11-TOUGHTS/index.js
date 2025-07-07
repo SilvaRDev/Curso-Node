@@ -4,14 +4,20 @@ const session = require('express-session')
 const FileStore = require('session-file-store')(session)
 const flash = require('express-flash') 
 
-const port = 3000
 
 const app = express()
 
 const conn = require('./db/conn')
 
+// Models 
+const Tought = require('./models/Tought')
+const User = require('./models/User')
+
+// Port
+const port = 3000
+
 // Template engine
-app.engine('handlebars', exphbs())
+app.engine('handlebars', exphbs.engine())
 app.set('view engine', 'handlebars')
 
 // Receber resposta do body
@@ -32,7 +38,7 @@ app.use(
     saveUninitialized: false,
     store: new FileStore({
       logfn: function() {},
-      path: require('path').join(require('os').tempdir(), 'sessions'),
+      path: require('path').join(require('os').tmpdir(), 'sessions'),
     }),
     cookie: {
       secure: false,
@@ -50,7 +56,7 @@ app.use(flash)
 app.use(express.static('public'))
 
 // setar sessão em res
-app.use(req, res, nextTick, () => {
+app.use((req, res, next) => {
   if(res.session.userid) {
     res.locals.session = req.session // Garante que o ID do usuário seja fornecido em TODAS as res.
   }
@@ -59,14 +65,15 @@ app.use(req, res, nextTick, () => {
 })
 
 conn 
-  .sync()
-  .then(() => {
-    app.listen(port, () => {
-      try {
-        console.log('Server iniciado!')
-      } catch(err) {
-        console.log(`Ocorreu um erro na inicialização do express: ${err}`)
-      }
-    })
+//.sync({ force: true })
+.sync()
+.then(() => {
+  app.listen(port, () => {
+    try {
+      console.log('Server iniciado!')
+    } catch(err) {
+      console.log(`Ocorreu um erro na inicialização do express: ${err}`)
+    }
   })
-  .catch((err) => console.log(err))
+})
+.catch((err) => console.log(err))
