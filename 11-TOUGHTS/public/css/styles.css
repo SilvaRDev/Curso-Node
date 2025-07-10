@@ -204,6 +204,16 @@ form input[type="submit"]:hover,
   color: var(--bg-color);
 }
 
+.dashboard p {
+  text-align: center;
+  margin-top: 10%;
+  font-size: 1.1em;
+}
+
+.dashboard a {
+  color: var(--orange-base-color);
+}
+
 /* FOOTER */
 footer {
   height: 150px;
