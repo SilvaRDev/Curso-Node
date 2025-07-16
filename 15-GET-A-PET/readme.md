@@ -24,3 +24,10 @@
   - No JWT, temos o método *sign*, passando no *primeiro parâmetro* propriedades, o nome do *nome do usuário* e seu *id*, por exemplo...
   - No *segundo parâmetro*, adicionamos o **secret**. Basicamente, uma *string* onde adicionamos *valores complexos e únicos*. Mantem maior confiabilidade na aplicação, evitando que um hacker possa *descriptografar* o token
 
+# Sistema de login 
+
+  **Conferir se a senha do db é igual a senha digitada pelo user**
+
+  - O método usado via *bcrypt* para realizar essa comparação é o **compare**.
+  - **Sintaxe:** *bcrypt.compare(password, userPassword)*
+  
