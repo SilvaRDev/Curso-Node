@@ -15,6 +15,8 @@ app.use(cors({ credential: true, origin: 'http://localhost:3000' })) // Libera o
 app.use(express.static('public'))
 
 // Routes 
+const UserRoutes = require('./routes/UserRoutes')
 
+app.use('/users', UserRoutes)
 
 app.listen(port)
