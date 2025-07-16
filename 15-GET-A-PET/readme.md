@@ -13,3 +13,14 @@
   - **CreatedAt**
   - **updatedAt**
 
+# Json Web Token (JWT)
+
+  **Adição do JWT**
+
+  - O Json Web Token é definido em uma constante, com sua respectiva abreviatura: *jwt*
+
+  **Método SIGN**
+
+  - No JWT, temos o método *sign*, passando no *primeiro parâmetro* propriedades, o nome do *nome do usuário* e seu *id*, por exemplo...
+  - No *segundo parâmetro*, adicionamos o **secret**. Basicamente, uma *string* onde adicionamos *valores complexos e únicos*. Mantem maior confiabilidade na aplicação, evitando que um hacker possa *descriptografar* o token
+
