@@ -13,9 +13,7 @@ app.use(express.json())
 
 // rotas - endpoints
 app.get('/', (req, res) => {
-
   res.json({message: "Olá, mundo!"}) // Enviamos um arquivo JSON...
-
 })
 
 app.listen(port)
