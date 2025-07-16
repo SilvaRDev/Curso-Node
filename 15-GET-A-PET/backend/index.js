@@ -1,0 +1,20 @@
+const express = require('express')
+const cors = require('cors')
+
+const app = express()
+
+const port = 5000
+
+// config JSON response
+app.use(express.json())
+
+// Solve cors
+app.use(cors({ credential: true, origin: 'http://localhost:3000' })) // Libera o cors a acessar o front sem conflitar com a API. 
+
+// Public folder for images 
+app.use(express.static('public'))
+
+// Routes 
+
+
+app.listen(port)
