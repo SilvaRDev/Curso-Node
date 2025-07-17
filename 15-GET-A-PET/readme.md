@@ -31,3 +31,9 @@
   - O método usado via *bcrypt* para realizar essa comparação é o **compare**.
   - **Sintaxe:** *bcrypt.compare(password, userPassword)*
   
+  **Verificar se o token é válido**
+
+  - O método usado vem do *jwt*, e e denominado de *verify*.
+  - Como parâmetros, passamos o token a ser verificado e o token correto da nossa aplicação.
+  - **Sintaxe:** *jwt.verify(token, 'nossoToken')*
+  - Ele decodifica o token e verifica se é igual a palavra presente no segundo parâmetro.
