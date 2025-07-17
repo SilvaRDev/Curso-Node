@@ -37,3 +37,9 @@
   - Como parâmetros, passamos o token a ser verificado e o token correto da nossa aplicação.
   - **Sintaxe:** *jwt.verify(token, 'nossoToken')*
   - Ele decodifica o token e verifica se é igual a palavra presente no segundo parâmetro.
+
+# Rotas PATCH
+
+  **Verbo de *atualização*.**
+
+  - Usado para páginas que precisam atualizar algum dado. **Ex:** *Forms de edit de user*.
