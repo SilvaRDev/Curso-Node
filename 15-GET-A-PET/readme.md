@@ -43,3 +43,7 @@
   **Verbo de *atualização*.**
 
   - Usado para páginas que precisam atualizar algum dado. **Ex:** *Forms de edit de user*.
+
+# Atualizando Dados
+
+  - O método **findOneAndUpdate** é responsável por pegar um dado do banco, e atualizar com os novos dados passados em **objetos nos parâmetros*.

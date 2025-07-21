@@ -15,7 +15,6 @@ const getUserByToken = async (token) => {
   const user = await User.findOne({ _id: userid })
 
   return user 
-
 }
 
 module.exports = getUserByToken
