@@ -113,7 +113,6 @@ module.exports = class UserController {
   static async checkUser(req, res) {
     let currentUser
 
-    
     if(req.headers.authorization) {
       const token = getToken(req)
       const decoded = jwt.verify(token, 'nossosecret')
@@ -144,15 +143,15 @@ module.exports = class UserController {
 
   static async editUser(req, res) {
     const id = req.params.id 
-
+    
     // Check if user exists
-    const token = getToken(req)
+    const token = getToken(req) // Pega do body da aplicação o token
     const user = await getUserByToken(token)
 
     const {name, email, phone, password, confirmpassword} = req.body 
-
+    
     let image = ''
-
+    
     // Validations
     if(!name) {
       res.status(422).json({message: 'O nome é obrigatório.'})
@@ -166,13 +165,14 @@ module.exports = class UserController {
       return
     }
 
-    // Check if email has already taken
+    // Check if email is already taken
     const userExists = await User.findOne({ email: email })
 
-    if(user.email !== email && userExists) {
-      return res.status(422).json({
-        message: 'Por favor, utilize outro E-mail.'
+    if(user.email != email && userExists) {
+      res.status(422).json({
+        message: 'Favor utilizar outro E-mail.'
       })
+      return
     }
 
     user.email = email
@@ -191,13 +191,7 @@ module.exports = class UserController {
       res.status(422).json({message: 'A confirmação de senha é obrigatória.'})
       return
     }
-
-    if(password !== confirmpassword) {
-      res.status(422).json({message: 'A senha e sua confirmação não são iguais.'})
-      return
-    }
-
-    // Check if user exists
     
   }
+
 }
