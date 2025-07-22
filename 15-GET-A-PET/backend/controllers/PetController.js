@@ -37,7 +37,7 @@ module.exports = class PetController {
       return
     }
 
-    if(images.length === 0) {
+    if (images.length === 0) {
       res.status(422).json({ message: "A imagem é obrigatória." })
       return
     }
@@ -75,5 +75,13 @@ module.exports = class PetController {
     } catch (err) {
       res.status(500).json({ message: err })
     }
+  }
+
+  static async getAll(req, res) {
+    const pets = await Pet.find().sort("-createdAt")
+
+    res.status(200).json({
+      pets: pets,
+    })
   }
 }

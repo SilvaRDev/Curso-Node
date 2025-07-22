@@ -52,3 +52,10 @@
 
   **req.file.filename** 
   - Responsável por *pegar o nome de um arquivo presente no body* 
+
+# ORDENAÇÃO DOS ÍTENS (PETS)
+
+  - O método **sort** é responsável por *ordenar os ítens*
+  - Passando como parâmetro do método o *('-algumItem')*, ele irá buscar pelo ítem *ignorando* os argumentos passados.
+
+  
