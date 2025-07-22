@@ -11,6 +11,8 @@ module.exports = class PetController {
 
     const avaliable = true
 
+    const images = req.files
+
     // Images upload
 
     // Validations
@@ -35,6 +37,11 @@ module.exports = class PetController {
       return
     }
 
+    if(images.length === 0) {
+      res.status(422).json({ message: "A imagem é obrigatória." })
+      return
+    }
+
     // Get a user's pet
     const token = getToken(req)
     const user = await getUserByToken(token)
@@ -53,6 +60,10 @@ module.exports = class PetController {
         image: user.image,
         phone: user.phone,
       },
+    })
+
+    images.map((image) => {
+      pet.images.push(image.filename)
     })
 
     try {
