@@ -12,6 +12,7 @@ router.post(
   imageUpload.array("images"),
   PetController.create
 )
+router.get("/mypets", PetController.getAllUserPets)
 router.get("/", PetController.getAll)
 
 module.exports = router

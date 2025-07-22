@@ -58,4 +58,6 @@
   - O método **sort** é responsável por *ordenar os ítens*
   - Passando como parâmetro do método o *('-algumItem')*, ele irá buscar pelo ítem *ignorando* os argumentos passados.
 
-  
+# FILTRAR POR SUBDOCUMENT
+
+  - Sintaxe: *Model.find({'subdocument.key': value.filter}*)
