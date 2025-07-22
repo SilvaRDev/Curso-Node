@@ -1,7 +1,10 @@
-const router = require('express').Router() 
+const router = require("express").Router()
 
-const PetController = require('../controllers/PetController')
+const PetController = require("../controllers/PetController")
 
-router.post('/create', PetController.create)
+// middlewares
+const verifytoken = require("../helpers/verify-token")
 
-module.exports = router 
+router.post("/create", verifytoken, PetController.create)
+
+module.exports = router
