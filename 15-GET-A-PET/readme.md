@@ -47,3 +47,7 @@
 # Atualizando Dados
 
   - O método **findOneAndUpdate** é responsável por pegar um dado do banco, e atualizar com os novos dados passados em **objetos nos parâmetros*.
+
+# Envio de imagem
+
+  - 
