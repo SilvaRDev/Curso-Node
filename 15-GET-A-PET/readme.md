@@ -50,4 +50,5 @@
 
 # Envio de imagem
 
-  - 
+  **req.file.filename** 
+  - Responsável por *pegar o nome de um arquivo presente no body* 
