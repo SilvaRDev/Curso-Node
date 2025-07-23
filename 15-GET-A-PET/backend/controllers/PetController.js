@@ -10,7 +10,7 @@ module.exports = class PetController {
   static async create(req, res) {
     const { name, age, weight, color } = req.body
 
-    const avaliable = true
+    const available = true
 
     const images = req.files
 
@@ -53,7 +53,7 @@ module.exports = class PetController {
       age,
       weight,
       color,
-      avaliable,
+      available,
       images: [],
       user: {
         _id: user._id,
@@ -62,6 +62,8 @@ module.exports = class PetController {
         phone: user.phone,
       },
     })
+
+    console.log(pet.available)
 
     images.map((image) => {
       pet.images.push(image.filename)
@@ -281,6 +283,39 @@ module.exports = class PetController {
 
     res.status(200).json({
       message: `A visita foi agendada com sucesso. Entre em contato com ${pet.user.name} pelo telefone ${pet.user.phone}.`,
+    })
+  }
+
+  static async concludeAdoption(req, res) {
+    const id = req.params.id
+
+    const pet = await Pet.findOne({ _id: id })
+
+    if (!pet) {
+      res.status(404).json({ message: "O pet não foi encontrado" })
+      return
+    }
+
+    console.log(pet.avaliable)
+
+    // Check if logged in use registred the pet
+    const token = getToken(req)
+    const user = await getUserByToken(token)
+
+    if (pet.user._id.toString() !== user._id.toString()) {
+      res.status(422).json({
+        message:
+          "Houve um problema ao processar sua solicitação. Tente novamente mais tarde...",
+      })
+      return
+    }
+
+    pet.available = false
+
+    await Pet.findByIdAndUpdate(id, pet)
+
+    res.status(200).json({
+      message: "Parabéns, o ciclo de adoção foi finalizado com sucesso!",
     })
   }
 }

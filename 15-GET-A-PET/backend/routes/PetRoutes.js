@@ -22,7 +22,8 @@ router.patch(
   imageUpload.array("images"),
   PetController.updatePet
 )
-router.patch('/schedule/:id', verifytoken, PetController.schedule)
+router.patch("/schedule/:id", verifytoken, PetController.schedule)
+router.patch("/conclude/:id", verifytoken, PetController.concludeAdoption)
 router.get("/", PetController.getAll)
 
 module.exports = router
