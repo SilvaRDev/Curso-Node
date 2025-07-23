@@ -87,3 +87,9 @@
 
   - Criamos na *pasta raiz do projeto* um arquivo chamado *.env.local*, e nele, adicionamos a variável **REACT_APP_API**.
   - Sintaxe: **REACT_APP_API: *http://localhost:3000***
+
+# OBSERVAÇÕES
+
+  - O **JSX** é basicamente uma *integração* entre *html e JS*.
+  - Há algumas divergências por conta de palavras reservadas em sua sintaxe.
+  - EX: **class** em jsx é definido como **className**
