@@ -93,3 +93,10 @@
   - O **JSX** é basicamente uma *integração* entre *html e JS*.
   - Há algumas divergências por conta de palavras reservadas em sua sintaxe.
   - EX: **class** em jsx é definido como **className**
+  - O **switch** é usado para criar diversas *rotas* dentro do front-end da aplicação JS *(Localizado em APP.js)*.
+
+  - É possível adicionar os layouts (Navbar, footer...) encapsulados na tag **router**, antes do switch (no caso do nav), e depois (no caso do footer.)
+
+# REACT ROUTER
+
+  - Um de seus grandes fortes, é o *"carregamento sutil"* das páginas. Fazendo com que não haja a necessidade de um load do navegador.
