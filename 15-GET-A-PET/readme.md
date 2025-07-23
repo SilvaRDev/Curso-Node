@@ -100,3 +100,5 @@
 # REACT ROUTER
 
   - Um de seus grandes fortes, é o *"carregamento sutil"* das páginas. Fazendo com que não haja a necessidade de um load do navegador.
+
+# CSS MODULES

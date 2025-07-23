@@ -1,0 +1,46 @@
+:root {
+  --default-blue-color: #16479D;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 1.5em;
+  background-color: #FFD400;
+  color: var(--default-blue-color);
+}
+
+.navbar_logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar_logo img {
+  width: 40px;
+  margin-right: .8em;
+}
+
+.navbar ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.navbar li,
+.navbar a {
+  text-decoration: none;
+  color: var(--default-blue-color);
+  font-weight: bold;
+  cursor: pointer;
+  padding: .5em .8em;
+  border-radius: 5px;
+  transition: .5s;
+}
+
+.navbar li:hover {
+  background-color: var(--default-blue-color);
+}
+
+.navbar li:hover > a {
+  color: white;
+}
