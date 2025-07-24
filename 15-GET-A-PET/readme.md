@@ -102,3 +102,14 @@
   - Um de seus grandes fortes, é o *"carregamento sutil"* das páginas. Fazendo com que não haja a necessidade de um load do navegador.
 
 # CSS MODULES
+  
+  - Cada arquivo de layout tem seu arquivo css.
+  - Para importá-los, basta importar no arquivo do template, e criar com a extensão **.module.css**
+  - Adicionando o nome de sua classe, da seguinte maneira:
+  **import styles from 'dirname'**
+  **className: {styles.footer}**
+
+# CHILDREN
+
+  - Para importar tags filhas, é necessário passar no parâmetro da funcionalidade que deseja inserir como pai, um objeto com a classe *{ children }*.
+  - Assim, encapsulamos este parâmetro na região do código que os elementos ficam abaixo na hierarquia do elemento descrito
