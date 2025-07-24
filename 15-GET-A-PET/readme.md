@@ -113,3 +113,9 @@
 
   - Para importar tags filhas, é necessário passar no parâmetro da funcionalidade que deseja inserir como pai, um objeto com a classe *{ children }*.
   - Assim, encapsulamos este parâmetro na região do código que os elementos ficam abaixo na hierarquia do elemento descrito
+
+# HOOK 
+
+  - Usado para verificar o estado do usuário (Se está logado ou não).
+  - A função **handleChange** é responsável por *lidar com os dados no preenchimento do formulário.*
+  - A função **handleSubmit** é responsável por *lidar com os dados no submit*
