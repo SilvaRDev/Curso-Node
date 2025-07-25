@@ -121,3 +121,9 @@
 # HOOK 
 
   - Os hooks geralmente tem a palavra 'use' como prefixo em seu nome, seguido pela sua funcionalidade principal. Ex: *useAuth*.
+
+# CONTEXTO
+
+  - Os contextos são usados para adicionar informações do cliente em uma determinada página.
+  - São usados na maioria das vezes para **armazenar informações de um usuário**.
+  - São armazenados na pasta *context*.
