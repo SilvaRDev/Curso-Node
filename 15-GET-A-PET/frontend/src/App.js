@@ -17,21 +17,21 @@ function App() {
   return (
     <Router>
       <UserProvider>
-      <Navbar />
-        <Container>
-          <Switch>
-            <Route path="/login">
-              <Login/>
-            </Route>
-            <Route path="/register">
-              <Register/>
-            </Route>
-            <Route exact path="/">
-              <Home/>
-            </Route>
-          </Switch>
-        </Container>
-      <Footer />
+        <Navbar />
+          <Container>
+            <Switch>
+              <Route path="/login">
+                <Login/>
+              </Route>
+              <Route path="/register">
+                <Register/>
+              </Route>
+              <Route exact path="/">
+                <Home/>
+              </Route>
+            </Switch>
+          </Container>
+        <Footer />
       </UserProvider>
     </Router>
   )
