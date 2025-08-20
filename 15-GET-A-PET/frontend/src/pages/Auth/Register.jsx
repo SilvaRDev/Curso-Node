@@ -1,15 +1,27 @@
+import { useState } from 'react'
+
 import Input from '../../components/form/Input'
 import { Link } from 'react-router-dom'
 
 import styles from '../../components/form/Form.module.css'
 
 const Register = () => {
-  function handleChange(e) {}
+  const [user, setUser] = useState({})
+
+  function handleChange(e) {
+    setUser({ ...user, [e.target.name]: e.target.value })
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    // Enviar o user ao banco
+    console.log(user)
+  }
 
   return (
     <section className={styles.form_container}>
       <h1>Register</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <Input
           type="text"
           text="Nome"
@@ -48,7 +60,7 @@ const Register = () => {
         <input type="submit" value="Cadastrar" />
       </form>
       <p>
-        Já tem conta? <Link to='/login'>Clique aqui</Link>
+        Já tem conta? <Link to="/login">Clique aqui</Link>
       </p>
     </section>
   )
