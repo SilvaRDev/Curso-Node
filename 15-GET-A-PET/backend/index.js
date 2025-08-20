@@ -9,7 +9,7 @@ const port = 5000
 app.use(express.json())
 
 // Solve cors
-app.use(cors({ credential: true, origin: 'http://localhost:3000' })) // Libera o cors a acessar o front sem conflitar com a API. 
+app.use(cors({ credential: true, origin: 'http://localhost:5173' })) // Libera o cors a acessar o front sem conflitar com a API. 
 
 // Public folder for images 
 app.use(express.static('public'))
