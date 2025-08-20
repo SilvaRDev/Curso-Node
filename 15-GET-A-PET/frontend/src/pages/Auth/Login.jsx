@@ -1,4 +1,4 @@
-function Login() {
+const Login = () => {
   return (
     <section>
       <h1>Login</h1>
