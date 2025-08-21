@@ -6,14 +6,16 @@ import Footer from './components/layout/Footer'
 import Container from './components/layout/Container'
 import Message from './components/Message/Message'
 
+/*  CONTEXTS */
+import { UserProvider } from './context/userContext'
+
 /* PAGES */
 import Login from './pages/Auth/Login'
 import Register from './pages/Auth/Register'
 import Home from './pages/Home'
 import Profile from './pages/User/Profile/Profile'
+import MyPets from './pages/Pet/MyPets/MyPets'
 
-/*  CONTEXTS */
-import { UserProvider } from './context/userContext'
 
 function App() {
   return (
@@ -27,6 +29,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/user/profile" element={<Profile />} />
+              <Route path="/pet/mypets" element={<MyPets />} />
               <Route path="/" element={<Home />} />
             </Routes>
           </Container>
