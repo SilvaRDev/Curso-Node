@@ -13,6 +13,11 @@ module.exports = class UserController {
     const {name, email, phone, password, confirmpassword} = req.body
 
     // Validations
+    if(!name && !email && !phone && !password && !confirmpassword) {
+      res.status(422).json({message: 'Preencha os campos para se cadastrar.'})
+      return
+    }
+
     if(!name) {
       res.status(422).json({message: 'O nome é obrigatório.'})
       return
