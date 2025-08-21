@@ -43,10 +43,8 @@ export default function useAuth() {
       localStorage.setItem('token', JSON.stringify(data.token))
       navigate('/')
     }
-
-    
   }
-  
+
   function logout() {
     const msgText = 'Você foi desconectado'
     const msgType = 'success'
@@ -57,8 +55,7 @@ export default function useAuth() {
     navigate('/')
 
     setFlashMessage(msgText, msgType)
-
   }
-  
+
   return { authenticated, register, logout }
 }
