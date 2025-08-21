@@ -15,7 +15,7 @@ import Register from './pages/Auth/Register'
 import Home from './pages/Home'
 import Profile from './pages/User/Profile/Profile'
 import MyPets from './pages/Pet/MyPets/MyPets'
-
+import AddPet from './components/AddPet/AddPet'
 
 function App() {
   return (
@@ -30,6 +30,7 @@ function App() {
               <Route path="/register" element={<Register />} />
               <Route path="/user/profile" element={<Profile />} />
               <Route path="/pet/mypets" element={<MyPets />} />
+              <Route path="/pet/add" element={<AddPet />} />
               <Route path="/" element={<Home />} />
             </Routes>
           </Container>
