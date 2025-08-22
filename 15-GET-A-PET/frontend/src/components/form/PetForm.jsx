@@ -6,21 +6,22 @@ import formStyles from './Form.module.css'
 import Input from './Input'
 import Select from './Select'
 
-const PetForm = ({handleSubmit, petData, btnText}) => {
+const PetForm = ({ handleSubmit, petData, btnText }) => {
   const [pet, setPet] = useState(petData || {})
   const [preview, setPreview] = useState({})
   const colors = ['Branco', 'Preto', 'Cinza', 'Caramelo', 'Mesclado']
 
   function onFileChange(e) {
-    setPet({...pet, images: {...e.target.files}})
+    setPreview(Array.from(e.target.files))
+    setPet({ ...pet, images: [...e.target.files] })
   }
 
   function handleChange(e) {
-    setPet({...pet, [e.target.name]: e.target.value})
+    setPet({ ...pet, [e.target.name]: e.target.value })
   }
 
   function handleColor(e) {
-    setPet({...pet, color: e.target.options[e.target.selectedIndex].text})
+    setPet({ ...pet, color: e.target.options[e.target.selectedIndex].text })
   }
 
   function submit(e) {
@@ -31,6 +32,24 @@ const PetForm = ({handleSubmit, petData, btnText}) => {
 
   return (
     <form onSubmit={submit} className={formStyles.form_container}>
+      <div>
+        {preview.length > 0
+          ? preview.map((image, index) => (
+              <img
+                src={URL.createObjectURL(image)}
+                alt={pet.name}
+                key={`${pet.name}+${index}`}
+              />
+            ))
+          : pet.images &&
+            pet.images.map((image, index) => (
+              <img
+                src={`${process.env.VITE_APP_API}/images/pets/${image}`}
+                alt={pet.name}
+                key={`${pet.name}+${index}`}
+              />
+            ))}
+      </div>
       <Input
         text="Imagens do Pet"
         type="file"
@@ -62,7 +81,7 @@ const PetForm = ({handleSubmit, petData, btnText}) => {
         handleOnChange={handleChange}
         value={pet.weight || ''}
       />
-      <Select 
+      <Select
         name="color"
         text="Selecione a cor"
         options={colors}
