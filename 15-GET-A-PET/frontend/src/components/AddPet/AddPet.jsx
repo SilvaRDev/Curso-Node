@@ -3,10 +3,13 @@ import api from '../../utils/api'
 import styles from './AddPet.module.css'
 
 import { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 /* Hooks */
 import useFlashMessage from '../../hooks/useFlashMessage'
+
+/* Components */
+import PetForm from '../form/PetForm'
 
 const AddPet = () => {
   return (
@@ -15,7 +18,7 @@ const AddPet = () => {
         <h1>Cadastre um pet</h1>
         <p>Depois ele ficará disponível para adoção</p>
       </div>
-      <p>Formulário</p>
+      <PetForm btnText="Cadastrar Pet" />
     </section>
   )
 }
