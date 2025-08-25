@@ -18,6 +18,7 @@ import MyPets from './pages/Pet/MyPets/MyPets'
 import AddPet from './components/AddPet/AddPet'
 import EditPet from './pages/Pet/EditPet/EditPet'
 import PetDetails from './pages/Pet/PetDetails/PetDetails'
+import MyAdoptions from './pages/Pet/MyAdoptions/MyAdoptions'
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
               <Route path="/user/profile" element={<Profile />} />
               <Route path="/pet/mypets" element={<MyPets />} />
               <Route path="/pet/add" element={<AddPet />} />
+              <Route path="/pet/myadoptions" element={<MyAdoptions />} />
               <Route path="/pet/edit/:id" element={<EditPet />} />
               <Route path="/pet/:id" element={<PetDetails />} />
               <Route path="/" element={<Home />} />
